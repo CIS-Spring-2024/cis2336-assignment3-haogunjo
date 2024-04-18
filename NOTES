@@ -1,4 +1,22 @@
-Description:
 
-Now you have a menu page for your cafeteria. For this assignment, please add an interactive order form for food items, which includes validation checks for each item's quantity.
-You can add the order form on your menu page or create a separate order page. Keep it real and make it great!
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+    var item1 = parseInt(document.getElementById("item1").value);
+    var item2 = parseInt(document.getElementById("item2").value);
+
+    var item1Error = document.getElementById("item1Error");
+    var item2Error = document.getElementById("item2Error");
+
+    if (isNaN(item1) || item1 < 0 || item1 > 10) {
+        item1Error.textContent = "Please enter a valid quantity between 0 and 10.";
+        event.preventDefault();
+    } else {
+        item1Error.textContent = "";
+    }
+
+    if (isNaN(item2) || item2 < 0 || item2 > 10) {
+        item2Error.textContent = "Please enter a valid quantity between 0 and 10.";
+        event.preventDefault();
+    } else {
+        item2Error.textContent = "";
+    }
+});
